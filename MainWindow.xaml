@@ -1,0 +1,31 @@
+﻿<Window x:Class="Publisher_GUI_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Publisher_GUI_2"
+        mc:Ignorable="d"
+        Title="Hwk5-PublisherGUI-v2" Height="450" Width="800" Icon="Book_Icon.png">
+    <Grid>
+        <ListBox x:Name="listBox" Margin="20,80,0,20" HorizontalAlignment="Left" Width="376" DisplayMemberPath="Title" ItemsSource="{Binding Mode=OneWay}"/>
+        <Label Content="Books" HorizontalAlignment="Left" Margin="20,40,0,0" VerticalAlignment="Top"/>
+        <Label Content="Id" HorizontalAlignment="Left" Margin="401,80,0,0" VerticalAlignment="Top"/>
+        <Label Content="Title" HorizontalAlignment="Left" Margin="401,120,0,0" VerticalAlignment="Top"/>
+        <Label Content="Price" HorizontalAlignment="Left" Margin="401,160,0,0" VerticalAlignment="Top"/>
+        <TextBox Height="26" Margin="450,80,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding SelectedItem.Id, ElementName=listBox}" IsReadOnly="True" ToolTip="Selected Book's Id"/>
+        <TextBox Height="26" Margin="450,120,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding SelectedItem.Title, ElementName=listBox}" IsReadOnly="True" ToolTip="Selected Book's Title"/>
+        <TextBox Height="26" Margin="450,160,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding SelectedItem.Price, ElementName=listBox}" IsReadOnly="True" ToolTip="Selected Book's Price"/>
+        <Menu Margin="0" VerticalAlignment="Top" Height="20">
+            <MenuItem Header="File" Click="closeApp">
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+            <MenuItem Header="Import" Click="importFromJSON">
+                <MenuItem Header="Import Publisher from JSON File"/>
+            </MenuItem>
+            <MenuItem Header="Help" Click="showAbout">
+                <MenuItem Header="About..."/>
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</Window>
